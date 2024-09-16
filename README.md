@@ -10,6 +10,9 @@ npm install tiny-reducer
 yarn add tiny-reducer
 ```
 
+> [!NOTE]
+> This package uses `immer` ([docs](https://immerjs.github.io/immer/installation)) under the hood to allow for immutability so you will need to install it as well
+
 ### API
 
 ```ts
