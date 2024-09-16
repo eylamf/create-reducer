@@ -2,7 +2,7 @@
   "name": "tiny-reducer",
   "version": "1.0.0",
   "description": "A utility that builds a type-safe reducer and actions",
-  "main": "./dist/index.ts",
+  "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
