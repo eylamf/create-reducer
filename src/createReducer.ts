@@ -1,21 +1,22 @@
-import { Reducer } from "react";
 import { Draft, produce } from "immer";
 
-type ReducerAction<T extends string, P> = {
-  type: T;
-  payload: P;
+type Reducer<State, Action> = (state: State, action: Action) => State;
+
+type ReducerAction<Type extends string, Payload> = {
+  type: Type;
+  payload: Payload;
 };
 
 type UserActions<State> = {
   [key: string]: (state: Draft<State>, payload: any) => void | State;
 };
 
-type ActionCreators<State, A extends UserActions<State>> = {
-  [K in keyof A]: Parameters<A[K]>[1] extends undefined
-    ? () => ReducerAction<K & string, Parameters<A[K]>[1]>
+type ActionCreators<State, Actions extends UserActions<State>> = {
+  [Key in keyof Actions]: Parameters<Actions[Key]>[1] extends undefined
+    ? () => ReducerAction<Key & string, Parameters<Actions[Key]>[1]>
     : (
-        payload: Parameters<A[K]>[1]
-      ) => ReducerAction<K & string, Parameters<A[K]>[1]>;
+        payload: Parameters<Actions[Key]>[1]
+      ) => ReducerAction<Key & string, Parameters<Actions[Key]>[1]>;
 };
 
 export function createReducer<State, Action extends UserActions<State>>(
