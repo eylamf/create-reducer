@@ -29,6 +29,7 @@ const { reducer, actions } = createReducer(initialState, {
 import { useReducer } from "react";
 
 function MyComponent() {
+  // Using the reducer and actions from the snippet above 👆
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleIncrement = () => {
@@ -36,7 +37,7 @@ function MyComponent() {
   };
 
   const handleAssign = () => {
-    dispatch(action.assign(10));
+    dispatch(actions.assign(10));
   };
 
   // render (...);
