@@ -2,6 +2,14 @@
 
 A tiny utility that helps you create type-safe reducers with readable actions
 
+### Installation
+
+```sh
+npm install tiny-reducer
+# or
+yarn add tiny-reducer
+```
+
 ### API
 
 ```ts
