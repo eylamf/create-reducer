@@ -1,5 +1,5 @@
 {
-  "name": "create-reducer",
+  "name": "tiny-reducer",
   "version": "1.0.0",
   "description": "A utility that builds a type-safe reducer and actions",
   "main": "./dist/index.ts",
@@ -17,7 +17,10 @@
     "url": "git+https://github.com/eylamf/create-reducer.git"
   },
   "keywords": [
-    "useReducer"
+    "useReducer",
+    "reducer",
+    "redux",
+    "react"
   ],
   "author": "@eylamf",
   "license": "MIT",
