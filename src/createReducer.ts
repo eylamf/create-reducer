@@ -19,11 +19,11 @@ type ActionCreators<State, Actions extends UserActions<State>> = {
       ) => ReducerAction<Key & string, Parameters<Actions[Key]>[1]>;
 };
 
-export function createReducer<State, Action extends UserActions<State>>(
+export function createReducer<State, Actions extends UserActions<State>>(
   _initialState: State,
-  userActions: Action
+  userActions: Actions
 ) {
-  const reducer: Reducer<State, ReducerAction<keyof Action & string, any>> = (
+  const reducer: Reducer<State, ReducerAction<keyof Actions & string, any>> = (
     state,
     action
   ) => {
@@ -39,9 +39,9 @@ export function createReducer<State, Action extends UserActions<State>>(
   };
 
   const actions = Object.keys(userActions).reduce((acc, type) => {
-    acc[type as keyof Action] = ((payload: any) => ({ type, payload })) as any;
+    acc[type as keyof Actions] = ((payload: any) => ({ type, payload })) as any;
     return acc;
-  }, {} as ActionCreators<State, Action>);
+  }, {} as ActionCreators<State, Actions>);
 
   return { reducer, actions };
 }
