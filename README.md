@@ -1,6 +1,6 @@
 ## tiny-reducer
 
-A tiny utility that helps you create type-safe reducers with readble actions
+A tiny utility that helps you create type-safe reducers with readable actions
 
 ### API
 
