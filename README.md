@@ -1,3 +1,9 @@
+## tiny-reducer
+
+A tiny utility that helps you create type-safe reducers with readble actions
+
+### API
+
 ```ts
 import { createReducer } from "tiny-reducer";
 
@@ -15,8 +21,13 @@ const { reducer, actions } = createReducer(initialState, {
     state.count = value;
   },
 });
+```
 
-// Using with React's `useReducer`
+### Example with React's `useReducer`
+
+```tsx
+import { useReducer } from "react";
+
 function MyComponent() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -30,7 +41,16 @@ function MyComponent() {
 
   // render (...);
 }
+```
 
-// Or simply use it in order to easily run operations on an object in a type-safe and readable way
-const { count } = reducer({ count: 0 }, actions.increment());
+### Outside of React
+
+This can be used with any JS logic since it is just a type-safe reducer
+
+```ts
+function someFunc(toValue: number) {
+  const initial = getInitialState(...);
+  const afterAssignment = reducer(initial, actions.assign(toValue));
+  return reducer(afterAssignment, actions.increment());
+}
 ```
